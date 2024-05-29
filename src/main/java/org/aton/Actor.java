@@ -1,15 +1,11 @@
 package org.aton;
 
 import java.util.Queue;
-import java.util.logging.Level;
 
 public class Actor implements Runnable{
-    private String currentReplica;
-    private String name;
+    private final String name;
     private ActorState currentState = ActorState.WAITING;
-    private Queue<String> replicaSet;
-
-    public ActorState getCurrentState() {return this.currentState;}
+    private final Queue<String> replicaSet;
 
     public void setCurrentState(ActorState currentState) {this.currentState = currentState;}
 
@@ -28,7 +24,7 @@ public class Actor implements Runnable{
     public void run() {
         while (!replicaSet.isEmpty()) {
             if(currentState == ActorState.TALK) {
-                currentReplica = replicaSet.poll();
+                String currentReplica = replicaSet.poll();
                 System.out.println(name + ": " + currentReplica);
                 currentState = ActorState.WAITING;
             }

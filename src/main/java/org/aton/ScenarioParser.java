@@ -31,11 +31,11 @@ public class ScenarioParser {
         scenario = new LinkedBlockingQueue<>();
 
         for (String line : lines) {
-            String[] s = line.split(":");
-            currentActor = s[0].trim();
+            String[] splitLine = line.split(":");
+            currentActor = splitLine[0].trim();
             scenario.add(currentActor);
             actorsMap.putIfAbsent(currentActor, new LinkedBlockingQueue<>());
-            actorsMap.get(currentActor).add(s[1].trim());
+            actorsMap.get(currentActor).add(splitLine[1].trim());
         }
 
         actors = new ArrayList<>();
