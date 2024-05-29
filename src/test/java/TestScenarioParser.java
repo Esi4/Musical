@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Test;
 
 
 public class TestScenarioParser {
-    public static final String PATH_TO_SCENARIO = "C:\\Users\\Tyauch\\Desktop\\Aton quests\\Musical\\Musical\\src\\main\\resources\\scenario";
-    public static final String PATH_TO_TEST_ACTORS = "C:\\Users\\Tyauch\\Desktop\\Aton quests\\Musical\\Musical\\src\\main\\resources\\Test_Actors";
-    public static final String PATH_TO_TEST_SCENARIO = "C:\\Users\\Tyauch\\Desktop\\Aton quests\\Musical\\Musical\\src\\main\\resources\\Test_Scenario";
+    public static final String PATH_TO_SCENARIO = "src/main/resources/scenario";
+    public static final String PATH_TO_TEST_ACTORS = "src/main/resources/Test_Actors";
+    public static final String PATH_TO_TEST_SCENARIO = "src/main/resources/Test_Scenario";
     private List<String> expectedNameActors;
     private Queue<String> expectedScenario;
 

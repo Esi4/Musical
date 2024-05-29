@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TestControlScene {
-    public static final String PATH_TO_SCENARIO = "C:\\Users\\Tyauch\\Desktop\\Aton quests\\Musical\\Musical\\src\\main\\resources\\scenario";
+    public static final String PATH_TO_SCENARIO = "src/main/resources/scenario";
 
     @Test
     void testScene() throws IOException {

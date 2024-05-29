@@ -3,7 +3,7 @@ package org.aton;
 import java.util.List;
 
 public class Main {
-    public static final String PATH_TO_SCENARIO = "C:\\Users\\Tyauch\\Desktop\\Aton quests\\Musical\\Musical\\src\\main\\resources\\scenario";
+    public static final String PATH_TO_SCENARIO = "src/main/resources/scenario";
 
     public static void main(String[] args) throws InterruptedException {
         ScenarioParser scenarioParser = new ScenarioParser(PATH_TO_SCENARIO);
@@ -12,7 +12,7 @@ public class Main {
     }
 
     public static void testScenario() {
-        ScenarioParser scenarioParser = new ScenarioParser("C:\\Users\\Tyauch\\Desktop\\Aton quests\\Musical\\Musical\\src\\main\\resources\\scenario");
+        ScenarioParser scenarioParser = new ScenarioParser("src/main/resources/scenario");
         List<Actor> actors = scenarioParser.getActors();
 
         // Выводим результаты
