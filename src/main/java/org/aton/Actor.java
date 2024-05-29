@@ -1,23 +1,37 @@
 package org.aton;
 
-import java.util.concurrent.Callable;
+import java.util.Queue;
+import java.util.logging.Level;
 
-public class Actor implements Callable<Actor>, Comparable<Actor>{
-    private String currentReplica = "Hello Everybody!";
+public class Actor implements Runnable{
+    private String currentReplica;
+    private String name;
+    private ActorState currentState = ActorState.WAITING;
+    private Queue<String> replicaSet;
 
-    public void setCurrentReplica(String currentReplica) {this.currentReplica = currentReplica;}
+    public ActorState getCurrentState() {return this.currentState;}
 
-    public void beginningTalkReplica() {
-        System.out.println(currentReplica);
+    public void setCurrentState(ActorState currentState) {this.currentState = currentState;}
+
+    public String getName() {return this.name;}
+
+    public Queue<String> getReplicaSet() {
+        return this.replicaSet;
+    }
+
+    public Actor(String name, Queue<String> replicaSet) {
+        this.replicaSet = replicaSet;
+        this.name = name;
     }
 
     @Override
-    public int compareTo(Actor o) {
-        return 0;
-    }
-
-    @Override
-    public Actor call() throws Exception {
-        return null;
+    public void run() {
+        while (!replicaSet.isEmpty()) {
+            if(currentState == ActorState.TALK) {
+                currentReplica = replicaSet.poll();
+                System.out.println(name + ": " + currentReplica);
+                currentState = ActorState.WAITING;
+            }
+        }
     }
 }
